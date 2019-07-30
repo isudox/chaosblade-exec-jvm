@@ -14,18 +14,32 @@
  * limitations under the License.
  */
 
-package com.alibaba.chaosblade.exec.plugin.servlet;
+package com.alibaba.chaosblade.exec.common.model.action.exception;
+
+import com.alibaba.chaosblade.exec.common.model.FlagSpec;
 
 /**
  * @author Changjun Xiao
  */
-public interface ServletConstant {
+public class ExceptionMessageFlagSpec implements FlagSpec {
 
-    String PATH_INFO_KEY = "pathinfo";
-    String QUERY_STRING_KEY = "querystring";
-    String SERVLET_PATH_KEY = "servletpath";
-    String METHOD_KEY = "method";
-    String REQUEST_PATH_KEY = "requestpath";
+    @Override
+    public String getName() {
+        return "exception-message";
+    }
 
-    String TARGET_NAME = "servlet";
+    @Override
+    public String getDesc() {
+        return "Specify exception message for exception experiment, default value is chaosblade-mock-exception";
+    }
+
+    @Override
+    public boolean noArgs() {
+        return false;
+    }
+
+    @Override
+    public boolean required() {
+        return false;
+    }
 }
